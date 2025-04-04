@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不動産利回り計算ツール</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>不動産利回り計算ツール</h1>
+            <p>投資用不動産の収益性を簡単に計算</p>
+        </header>
+
+        <div class="calculator-container">
+            <div class="input-section">
+                <h2>基本情報</h2>
+                <div class="input-group">
+                    <label for="property-price">物件価格 (円)</label>
+                    <input type="number" id="property-price" placeholder="例: 30,000,000">
+                </div>
+                <div class="input-group">
+                    <label for="monthly-rent">月額家賃収入 (円)</label>
+                    <input type="number" id="monthly-rent" placeholder="例: 150,000">
+                </div>
+                <div class="input-group">
+                    <label for="purchase-expenses">購入諸経費 (円)</label>
+                    <input type="number" id="purchase-expenses" placeholder="例: 1,000,000">
+                </div>
+
+                <h2>運営コスト</h2>
+                <div class="input-group">
+                    <label for="management-fee">管理費 (円/月)</label>
+                    <input type="number" id="management-fee" placeholder="例: 10,000">
+                </div>
+                <div class="input-group">
+                    <label for="repair-reserve">修繕積立金 (円/月)</label>
+                    <input type="number" id="repair-reserve" placeholder="例: 5,000">
+                </div>
+                <div class="input-group">
+                    <label for="property-tax">固定資産税 (円/年)</label>
+                    <input type="number" id="property-tax" placeholder="例: 120,000">
+                </div>
+                <div class="input-group">
+                    <label for="insurance">保険料 (円/年)</label>
+                    <input type="number" id="insurance" placeholder="例: 20,000">
+                </div>
+                <div class="input-group">
+                    <label for="vacancy-rate">空室率 (%)</label>
+                    <input type="number" id="vacancy-rate" placeholder="例: 5" min="0" max="100">
+                </div>
+
+                <button id="calculate-btn" class="calculate-btn">計算する</button>
+                <button id="reset-btn" class="reset-btn">リセット</button>
+            </div>
+            
+            <div class="results-section">
+                <h2>計算結果</h2>
+                <div class="result-item">
+                    <div class="result-label">表面利回り</div>
+                    <div class="result-value" id="gross-yield">-</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">実質利回り</div>
+                    <div class="result-value" id="net-yield">-</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">年間収入</div>
+                    <div class="result-value" id="annual-income">-</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">年間経費</div>
+                    <div class="result-value" id="annual-expenses">-</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">年間純収益</div>
+                    <div class="result-value" id="annual-net-income">-</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">投資回収期間</div>
+                    <div class="result-value" id="payback-period">-</div>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="yield-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>利回りについて</h2>
+            <div class="info-item">
+                <h3>表面利回りとは</h3>
+                <p>年間家賃収入 ÷ 物件価格 × 100で計算される、経費を考慮しない単純な利回りです。</p>
+            </div>
+            <div class="info-item">
+                <h3>実質利回りとは</h3>
+                <p>年間の純収益（家賃収入 - 経費）÷ 物件価格 × 100で計算される、実際の収益性を表す指標です。</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>※ このツールは概算を計算するためのものです。実際の投資判断には専門家にご相談ください。</p>
+            <p>&copy; 2025 不動産利回り計算ツール</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
