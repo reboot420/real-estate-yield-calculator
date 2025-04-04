@@ -1,0 +1,17 @@
+{
+  "name": "real-estate-yield-calculator",
+  "version": "1.0.0",
+  "description": "不動産投資の利回り計算ツール",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve ."
+  },
+  "keywords": [
+    "real-estate",
+    "investment",
+    "yield",
+    "calculator"
+  ],
+  "author": "",
+  "license": "MIT"
+}
